@@ -1,10 +1,6 @@
-FROM node:16
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install
-RUN npm ci --only=production
-COPY . .
+FROM node:latest 
+WORKDIR /app 
+COPY . /app 
+RUN npm install express multer 
+CMD ["node","index.js"]
 EXPOSE 3000
-CMD [ "node", "index.js" ]
