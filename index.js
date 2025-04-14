@@ -1,17 +1,16 @@
-const express = require("express");
-const path = require("path");
-
-const app = express();
-
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload</title>
+</head>
+<body>
+  <h1>Upload File</h1>
+  <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+    <input type="file" name="myFile" />
+    <input type='submit' value='Upload!' />
+  </form>
+</body>
+</html>
